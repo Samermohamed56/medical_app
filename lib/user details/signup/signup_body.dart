@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medical/settings/settings/settings_view.dart';
 import 'package:medical/user%20details/login/login_view.dart';
 import 'package:medical/widgets/custem_button.dart';
 import 'package:medical/widgets/custom_text_field.dart';
@@ -35,7 +36,16 @@ class SignupBody extends StatelessWidget {
           CustemTextField(hintText: "age", isPassword: false),
           CustemTextField(hintText: "password", isPassword: true),
           SizedBox(height: 24),
-          CustomButton(text: "Register", backgroundcolor: Color(0xff26864E)),
+          CustomButton(
+            text: "Register",
+            backgroundcolor: Color(0xff26864E),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsView()),
+              );
+            },
+          ),
           Expanded(flex: 3, child: SizedBox()),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
