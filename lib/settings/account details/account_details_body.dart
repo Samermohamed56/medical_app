@@ -8,8 +8,8 @@ class AccountDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
+    return CustomScrollView(
+      slivers: [Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +59,7 @@ class AccountDetailsBody extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ),]
     );
   }
 }
