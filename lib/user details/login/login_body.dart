@@ -10,126 +10,131 @@ class LoginBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      slivers:[ SliverToBoxAdapter(
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(flex: 1, child: SizedBox()),
-              Text(
-                "Sign in to your Account",
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
-              ),
-              SizedBox(height: 12),
-        
-              Text(
-                "Enter your email and password to log in",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                  color: Color(0xff6C7278),
+      slivers: [
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(),
+                Text(
+                  "Sign in to your Account",
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
                 ),
-              ),
-              Expanded(child: SizedBox()),
-        
-              CustemTextField(hintText: "email", isPassword: false),
-        
-              CustemTextField(hintText: "password", isPassword: true),
-              Row(
-                children: [
-                  Checkbox(value: true, onChanged: (bool? value) {}),
-                  Text(
-                    "Remember me",
-                    style: TextStyle(
-                      color: Color(0xff6C7278),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ForgotPasswordView(),
-                        ),
-                      );
-                    },
-                    child: Text(
-                      "Forgot Password ?",
-                      style: TextStyle(
-                        color: Color(0xff07AA59),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 16),
-              CustomButton(text: "Log In", backgroundcolor: Color(0xff26864E)),
-              SizedBox(height: 8),
-              Center(
-                child: Text(
-                  "----------------------OR----------------------",
+                SizedBox(height: 12),
+
+                Text(
+                  "Enter your email and password to log in",
                   style: TextStyle(
-                    color: Color(0xff6C7278),
-                    fontSize: 12,
                     fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                    color: Color(0xff6C7278),
                   ),
                 ),
-              ),
-              SizedBox(height: 8),
-              CustomButton(
-                iconimage: Image.asset("assets/google.png"),
-                text: "Continue with Google",
-                backgroundcolor: Colors.white,
-                color: Color(0xff26292C),
-              ),
-              SizedBox(height: 8),
-              CustomButton(
-                iconimage: Image.asset("assets/facebook.png"),
-                text: "Continue with Facebook",
-                backgroundcolor: Colors.white,
-                color: Color(0xff26292C),
-              ),
-              Expanded(flex: 3, child: SizedBox()),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don’t have an account?",
+                SizedBox(),
+
+                CustemTextField(hintText: "email", isPassword: false),
+
+                CustemTextField(hintText: "password", isPassword: true),
+                Row(
+                  children: [
+                    Checkbox(value: true, onChanged: (bool? value) {}),
+                    Text(
+                      "Remember me",
+                      style: TextStyle(
+                        color: Color(0xff6C7278),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Spacer(),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ForgotPasswordView(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "Forgot Password ?",
+                        style: TextStyle(
+                          color: Color(0xff07AA59),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 16),
+                CustomButton(
+                  text: "Log In",
+                  backgroundcolor: Color(0xff26864E),
+                ),
+                SizedBox(height: 8),
+                Center(
+                  child: Text(
+                    "----------------------OR----------------------",
                     style: TextStyle(
                       color: Color(0xff6C7278),
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignupView()),
-                      );
-                    },
-                    child: Text(
-                      " Sign Up",
+                ),
+                SizedBox(height: 8),
+                CustomButton(
+                  iconimage: Image.asset("assets/google.png"),
+                  text: "Continue with Google",
+                  backgroundcolor: Colors.white,
+                  color: Color(0xff26292C),
+                ),
+                SizedBox(height: 8),
+                CustomButton(
+                  iconimage: Image.asset("assets/facebook.png"),
+                  text: "Continue with Facebook",
+                  backgroundcolor: Colors.white,
+                  color: Color(0xff26292C),
+                ),
+                SizedBox(height: 100),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don’t have an account?",
                       style: TextStyle(
-                        color: Color(0xff07AA59),
+                        color: Color(0xff6C7278),
                         fontSize: 12,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Expanded(flex: 2, child: SizedBox()),
-            ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignupView()),
+                        );
+                      },
+                      child: Text(
+                        " Sign Up",
+                        style: TextStyle(
+                          color: Color(0xff07AA59),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(),
+              ],
+            ),
           ),
         ),
-      ),]
+      ],
     );
   }
 }

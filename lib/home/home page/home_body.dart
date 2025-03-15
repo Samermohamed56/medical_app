@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medical/home/product%20details/product_view.dart';
+import 'package:medical/settings/settings/settings_view.dart';
 import 'package:medical/widgets/custom_text_field.dart';
 
 class HomeBody extends StatelessWidget {
@@ -24,7 +25,17 @@ class HomeBody extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 8),
-                    Image.asset("assets/mahmod.png", width: 50),
+                    GestureDetector(
+                      child: Image.asset("assets/mahmod.png", width: 50),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SettingsView(),
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
                 TextButton(
@@ -52,7 +63,7 @@ class HomeBody extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Spacer(),
+                    
                     TextButton.icon(
                       iconAlignment: IconAlignment.end,
                       icon: Icon(
