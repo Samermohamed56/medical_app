@@ -36,7 +36,7 @@ class LoginBody extends StatelessWidget {
           CustemTextField(hintText: "password", isPassword: true),
           Row(
             children: [
-              Checkbox(value: false, onChanged: (bool? value) {}),
+              Checkbox(value: true, onChanged: (bool? value) {}),
               Text(
                 "Remember me",
                 style: TextStyle(
@@ -106,9 +106,11 @@ class LoginBody extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () 
-                {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignupView(),),);
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignupView()),
+                  );
                 },
                 child: Text(
                   " Sign Up",
