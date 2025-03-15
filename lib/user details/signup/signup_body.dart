@@ -17,6 +17,7 @@ class SignupBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Expanded(flex: 1, child: SizedBox()),
                 Text(
                   "sign up",
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
@@ -48,7 +49,7 @@ class SignupBody extends StatelessWidget {
                     );
                   },
                 ),
-
+                Expanded(flex: 3, child: SizedBox()),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -78,6 +79,7 @@ class SignupBody extends StatelessWidget {
                     ),
                   ],
                 ),
+                Expanded(flex: 2, child: SizedBox()),
               ],
             ),
           ),
