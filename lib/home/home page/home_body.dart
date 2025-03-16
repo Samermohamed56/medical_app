@@ -63,7 +63,7 @@ class HomeBody extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    
+                    Spacer(),
                     TextButton.icon(
                       iconAlignment: IconAlignment.end,
                       icon: Icon(

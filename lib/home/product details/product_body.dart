@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinbox/flutter_spinbox.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medical/cart/cart_view.dart';
 import 'package:medical/widgets/custem_button.dart';
 
 class ProductBody extends StatelessWidget {
@@ -122,6 +123,12 @@ class ProductBody extends StatelessWidget {
                 ),
                 SizedBox(height: 32),
                 CustomButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CartView()),
+                    );
+                  },
                   text: "Add to cart",
                   backgroundcolor: Color(0xff26864E),
                 ),
