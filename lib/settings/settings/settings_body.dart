@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:medical/settings/account%20details/account_details_view.dart';
 import 'package:medical/settings/history/history_view.dart';
-import 'package:medical/settings/notification/notification_view.dart';
+import 'package:medical/settings/settings/widgets/custom_row_account_details.dart';
+import 'package:medical/settings/settings/widgets/custom_row_privacy_details.dart';
 
 class SettingsBody extends StatelessWidget {
   const SettingsBody({super.key});
@@ -128,148 +129,29 @@ class SettingsBody extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 24),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => NotificationView(),
-                      ),
-                    );
-                  },
-                  child: Row(
-                    children: [
-                      Text(
-                        "Notifications",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff000000),
-                        ),
-                      ),
-                      Spacer(),
-                      Switch(
-                        value: true,
-                        onChanged: (value) {},
-                        activeColor: Color(0xff1B5E37),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 24),
-                Row(
-                  children: [
-                    Text(
-                      "Dark Mode",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xff000000),
-                      ),
-                    ),
-                    Spacer(),
-                    Switch(
-                      value: false,
-                      onChanged: (value) {},
-                      activeColor: Color(0xff1B5E37),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 24),
+
+                CustomRowaccountDetails(text: "Notifications"),
+                SizedBox(height: 14),
+                CustomRowaccountDetails(text: "Dark Mode"),
+                SizedBox(height: 18),
                 Text(
                   "Privacy",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
                 ),
                 SizedBox(height: 24),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AccountDetailsView(),
-                      ),
-                    );
-                  },
-                  child: Row(
-                    children: [
-                      Text(
-                        "Account Details",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff000000),
-                        ),
-                      ),
-                      Spacer(),
-                      Icon(
-                        FontAwesomeIcons.chevronRight,
-                        color: Color(0xff000000),
-                      ),
-                    ],
-                  ),
+                CustomRowPrivacyDetails(
+                  view: AccountDetailsView(),
+                  title: "Account Details",
                 ),
                 SizedBox(height: 24),
-                Row(
-                  children: [
-                    Text(
-                      "Favorites",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xff000000),
-                      ),
-                    ),
-                    Spacer(),
-                    Icon(
-                      FontAwesomeIcons.chevronRight,
-                      color: Color(0xff000000),
-                    ),
-                  ],
+                CustomRowPrivacyDetails(view: SizedBox(), title: "Favorites"),
+                SizedBox(height: 24),
+                CustomRowPrivacyDetails(
+                  title: "Payment Methods",
+                  view: SizedBox(),
                 ),
                 SizedBox(height: 24),
-                Row(
-                  children: [
-                    Text(
-                      "Payment Methods",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xff000000),
-                      ),
-                    ),
-                    Spacer(),
-                    Icon(
-                      FontAwesomeIcons.chevronRight,
-                      color: Color(0xff000000),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 24),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HistoryView()),
-                    );
-                  },
-                  child: Row(
-                    children: [
-                      Text(
-                        "History",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff000000),
-                        ),
-                      ),
-                      Spacer(),
-                      Icon(
-                        FontAwesomeIcons.chevronRight,
-                        color: Color(0xff000000),
-                      ),
-                    ],
-                  ),
-                ),
+                CustomRowPrivacyDetails(view: HistoryView(), title: "History"),
                 SizedBox(height: 100),
                 Center(
                   child: TextButton(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medical/user%20details/forgot%20password/forgot_password_view.dart';
-import 'package:medical/user%20details/signup/signup_view.dart';
+import 'package:medical/user%20details/login/widgets/remember_and_forgot.dart';
 import 'package:medical/widgets/custem_button.dart';
 import 'package:medical/widgets/custom_text_field.dart';
+import 'package:medical/widgets/dont_have_account.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({super.key});
@@ -37,47 +37,16 @@ class LoginBody extends StatelessWidget {
                 CustemTextField(hintText: "email", isPassword: false),
 
                 CustemTextField(hintText: "password", isPassword: true),
-                Row(
-                  children: [
-                    Checkbox(value: true, onChanged: (bool? value) {}),
-                    Text(
-                      "Remember me",
-                      style: TextStyle(
-                        color: Color(0xff6C7278),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    Spacer(),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ForgotPasswordView(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "Forgot Password ?",
-                        style: TextStyle(
-                          color: Color(0xff07AA59),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                RememberAndForgot(),
                 SizedBox(height: 16),
                 CustomButton(
                   text: "Log In",
                   backgroundcolor: Color(0xff26864E),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 16),
                 Center(
                   child: Text(
-                    "----------------------OR----------------------",
+                    "-----------------------------OR-----------------------------",
                     style: TextStyle(
                       color: Color(0xff6C7278),
                       fontSize: 12,
@@ -85,7 +54,7 @@ class LoginBody extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 16),
                 CustomButton(
                   iconimage: Image.asset("assets/google.png"),
                   text: "Continue with Google",
@@ -100,35 +69,7 @@ class LoginBody extends StatelessWidget {
                   color: Color(0xff26292C),
                 ),
                 SizedBox(height: 100),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Don’t have an account?",
-                      style: TextStyle(
-                        color: Color(0xff6C7278),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignupView()),
-                        );
-                      },
-                      child: Text(
-                        " Sign Up",
-                        style: TextStyle(
-                          color: Color(0xff07AA59),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                DontHaveAccount(),
                 SizedBox(),
               ],
             ),

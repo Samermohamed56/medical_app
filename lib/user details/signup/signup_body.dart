@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medical/home/home%20page/home_view.dart';
-import 'package:medical/user%20details/login/login_view.dart';
+import 'package:medical/widgets/already_have_an_account.dart';
 import 'package:medical/widgets/custem_button.dart';
 import 'package:medical/widgets/custom_text_field.dart';
 
@@ -49,35 +49,7 @@ class SignupBody extends StatelessWidget {
                   },
                 ),
                 SizedBox(height: 100),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Already have an account?",
-                      style: TextStyle(
-                        color: Color(0xff6C7278),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginView()),
-                        );
-                      },
-                      child: Text(
-                        "Log In",
-                        style: TextStyle(
-                          color: Color(0xff07AA59),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                AlreadyHaveAnAccount(),
                 SizedBox(height: 80),
               ],
             ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:medical/home/home%20page/widgets/category_avatar.dart';
+import 'package:medical/home/home%20page/widgets/custom_card.dart';
+import 'package:medical/home/home%20page/widgets/search_home_view.dart';
 import 'package:medical/home/product%20details/product_view.dart';
-import 'package:medical/settings/settings/settings_view.dart';
-import 'package:medical/widgets/custom_text_field.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -16,28 +17,7 @@ class HomeBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustemTextField(
-                        hintText: "Search",
-                        isPassword: false,
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    GestureDetector(
-                      child: Image.asset("assets/mahmod.png", width: 50),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SettingsView(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
+                SearchHomeView(),
                 TextButton(
                   onPressed: () {},
                   child: Row(
@@ -135,94 +115,6 @@ class HomeBody extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class CategoryAvatar extends StatelessWidget {
-  const CategoryAvatar({super.key, required this.image, required this.title});
-  final String image;
-  final String title;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CircleAvatar(
-          radius: 45,
-          backgroundColor: Colors.transparent,
-          child: Image.asset(image),
-        ),
-        Text(title, style: TextStyle(fontWeight: FontWeight.w600)),
-      ],
-    );
-  }
-}
-
-class CustumCard extends StatelessWidget {
-  const CustumCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
-              alignment: Alignment.bottomRight,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Image.asset("assets/med.png"),
-                ),
-                IconButton(
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.black),
-                  ),
-                  onPressed: () {},
-                  icon: Icon(Icons.add, color: Colors.white),
-                ),
-              ],
-            ),
-            Text(
-              "200 EGP",
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 20,
-                color: const Color.fromARGB(255, 255, 0, 0),
-              ),
-            ),
-            Row(
-              children: [
-                Text(
-                  "230 EGP",
-                  style: TextStyle(
-                    decoration: TextDecoration.lineThrough,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: Color(0xff6C7278),
-                  ),
-                ),
-                SizedBox(width: 8),
-                Text(
-                  "20% off",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14,
-                    color: const Color.fromARGB(255, 0, 38, 255),
-                  ),
-                ),
-              ],
-            ),
-            Text(
-              "Panadol Cold and Flu",
-              style: TextStyle(fontWeight: FontWeight.w600),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

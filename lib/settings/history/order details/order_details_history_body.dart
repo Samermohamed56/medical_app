@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:medical/settings/history/order%20details/widgets/order_card.dart';
+import 'package:medical/settings/history/order%20details/widgets/total_price.dart';
+import 'package:medical/widgets/custom_appbar.dart';
 
 class OrderDetailsHistoryBody extends StatelessWidget {
   const OrderDetailsHistoryBody({super.key});
@@ -14,33 +16,7 @@ class OrderDetailsHistoryBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    SizedBox(width: 32),
-                    IconButton(
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(
-                          const Color.fromARGB(115, 255, 255, 255),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(
-                        FontAwesomeIcons.chevronLeft,
-                        color: Colors.black,
-                      ),
-                    ),
-                    SizedBox(width: 24),
-                    Text(
-                      "Order #123456",
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ],
-                ),
+                CustomAppBar(screenTitle: "Order Details"),
                 SizedBox(height: 32),
                 Container(
                   decoration: BoxDecoration(color: Color(0xffEBF9F1)),
@@ -61,162 +37,20 @@ class OrderDetailsHistoryBody extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 32),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 8),
-                  margin: EdgeInsets.symmetric(horizontal: 32),
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Color.fromARGB(172, 27, 94, 55)),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.transparent,
-                  ),
-                  child: Row(
-                    children: [
-                      SizedBox(width: 10),
-                      Image.asset(
-                        "assets/med.png",
-                        height: 50,
-                        fit: BoxFit.fill,
-                      ),
-                      SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Strepsils orange 24 lozenges tablets",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Text(
-                            "120 EGP",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(height: 16),
-                        ],
-                      ),
-                    ],
-                  ),
+                OrderCard(
+                  image: "assets/med.png",
+                  title: "Strepsils orange 24 lozenges tablets",
+                  price: "120 EGP",
                 ),
                 SizedBox(height: 16),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 8),
-                  margin: EdgeInsets.symmetric(horizontal: 32),
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Color.fromARGB(172, 27, 94, 55)),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.transparent,
-                  ),
-
-                  child: Row(
-                    children: [
-                      SizedBox(width: 10),
-                      Image.asset(
-                        "assets/med2.png",
-                        height: 50,
-                        fit: BoxFit.fill,
-                      ),
-                      SizedBox(width: 10),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Augmentin 1mg 14 tablets",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Text(
-                            "59 EGP",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(height: 16),
-                        ],
-                      ),
-                    ],
-                  ),
+                OrderCard(
+                  title: "Augmentin 1mg 14 tablets",
+                  price: "59 EGP",
+                  image: "assets/med2.png",
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.15),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                    children: [
-                      Text(
-                        "Subtotal",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                        ),
-                      ),
-                      Text(
-                        "179 EGP",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                    children: [
-                      Text(
-                        "Discount",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                        ),
-                      ),
-                      Text(
-                        "9 EGP",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                    children: [
-                      Text(
-                        "Total",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          fontSize: 17,
-                        ),
-                      ),
-                      Text(
-                        "170 EGP",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          fontSize: 17,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.25),
+                TotalPrice(subtotal: "179", discount: "9", total: "170"),
               ],
             ),
           ),

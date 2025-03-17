@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:medical/user%20details/login/login_view.dart';
 import 'package:medical/user%20details/new%20password/new_passowrd_view.dart';
+import 'package:medical/widgets/already_have_an_account.dart';
 import 'package:medical/widgets/custem_button.dart';
+import 'package:medical/widgets/custom_appbar.dart';
 import 'package:pinput/pinput.dart';
 
 class VerifyBody extends StatelessWidget {
@@ -18,12 +18,7 @@ class VerifyBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(FontAwesomeIcons.chevronLeft, color: Colors.black),
-                ),
+                CustomAppBar(screenTitle: ""),
                 SizedBox(),
 
                 Text(
@@ -98,36 +93,8 @@ class VerifyBody extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 300),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Already have an account?",
-                      style: TextStyle(
-                        color: Color(0xff6C7278),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginView()),
-                        );
-                      },
-                      child: Text(
-                        "Log In",
-                        style: TextStyle(
-                          color: Color(0xff07AA59),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.4),
+                AlreadyHaveAnAccount(),
               ],
             ),
           ),

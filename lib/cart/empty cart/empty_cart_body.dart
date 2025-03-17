@@ -16,7 +16,9 @@ class EmptyCartBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               icon: Icon(FontAwesomeIcons.chevronLeft),
             ),
             Expanded(
