@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical/user%20details/signup/signup_view.dart';
+import 'package:medical/view/user%20details/signup/signup_view.dart';
 
 void main() {
   runApp(const MedicalApp());
