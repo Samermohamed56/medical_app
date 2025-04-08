@@ -1,31 +1,54 @@
-class Vending {
-  int? machineId;
-  String? location;
-  String? qr;
-  int? capacity;
-  String? adminName;
+class VendingMachine {
+  final int machineId;
+  final String location;
+  final String qr;
+  final int capacity;
+  final int adminId;
+  final String? adminName;
+  final double latitude;
+  final double longitude;
 
-  Vending({
-    this.machineId,
-    this.location,
-    this.qr,
-    this.capacity,
+  VendingMachine({
+    required this.machineId,
+    required this.location,
+    required this.qr,
+    required this.capacity,
+    required this.adminId,
     this.adminName,
+    required this.latitude,
+    required this.longitude,
   });
 
-  factory Vending.fromJson(Map<String, dynamic> json) => Vending(
-        machineId: json['machineId'] as int?,
-        location: json['location'] as String?,
-        qr: json['qr'] as String?,
-        capacity: json['capacity'] as int?,
-        adminName: json['adminName'] as String?,
-      );
+  factory VendingMachine.fromJson(Map<String, dynamic> json) {
+    return VendingMachine(
+/*************  ✨ Windsurf Command ⭐  *************/
+  /// Converts the Vending object into a JSON map representation.
+  /// 
+  /// Returns a map containing key-value pairs representing the 
+  /// fields of the Vending object, including 'machineId', 'location', 
+  /// 'qr', 'capacity', and 'adminName'.
 
-  Map<String, dynamic> toJson() => {
-        'machineId': machineId,
-        'location': location,
-        'qr': qr,
-        'capacity': capacity,
-        'adminName': adminName,
-      };
+/*******  b34c7dad-c704-4e86-a190-f42c734cdc2d  *******/      machineId: json['machineId'],
+      location: json['location'],
+      qr: json['qr'],
+      capacity: json['capacity'],
+      adminId: json['adminId'],
+      adminName: json['adminName'],
+      latitude: json['latitude'],
+      longitude: json['longitude'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'machineId': machineId,
+      'location': location,
+      'qr': qr,
+      'capacity': capacity,
+      'adminId': adminId,
+      'adminName': adminName,
+      'latitude': latitude,
+      'longitude': longitude,
+    };
+  }
 }
