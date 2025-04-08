@@ -7,7 +7,9 @@ class CustemTextField extends StatelessWidget {
     this.onChanged,
     required this.isPassword,
     this.validator,
-    this.controller, this.focusNode,  this.autoFocus,
+    this.controller,
+    this.focusNode,
+    this.autoFocus,
   });
   final bool? autoFocus;
   final String hintText;

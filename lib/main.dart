@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medical/data/repo/auth/auth_repository.dart';
+import 'package:medical/data/service/api_service.dart';
+import 'package:medical/view%20model/cubit/cubit/signup_cubit.dart';
 import 'package:medical/view%20model/cubit/login_cubit.dart';
+import 'package:medical/view/user%20details/login/login_view.dart';
 import 'package:medical/view/user%20details/signup/signup_view.dart';
 
+import 'view/home/home page/home_view.dart';
+
 void main() {
- 
+  WidgetsFlutterBinding.ensureInitialized();
+  ApiService(); // تهيئة ApiService
+
   runApp(const MedicalApp());
 }
 
@@ -13,14 +21,31 @@ class MedicalApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    final authRepo = AuthRepository(ApiService().dio);
+
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<AuthRepository>.value(value: authRepo),
+      ],
+      child: MultiBlocProvider(
         providers: [
-          BlocProvider(
-            create: (context) => LoginCubit(),
+          BlocProvider<LoginCubit>(
+            create: (context) => LoginCubit(context.read<AuthRepository>()),
           ),
-          
+          BlocProvider<SignupCubit>(
+            create: (context) => SignupCubit(context.read<AuthRepository>()),
+          ),
         ],
-        child:
-            MaterialApp(debugShowCheckedModeBanner: false, home: SignupView()));
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: const SignupView(),
+          routes: {
+            '/login': (_) => const LoginView(),
+            '/signup': (_) => const SignupView(),
+            '/home': (_) => const HomeView(),
+          },
+        ),
+      ),
+    );
   }
 }
