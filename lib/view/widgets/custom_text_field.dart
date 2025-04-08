@@ -7,18 +7,23 @@ class CustemTextField extends StatelessWidget {
     this.onChanged,
     required this.isPassword,
     this.validator,
+    this.controller, this.focusNode,  this.autoFocus,
   });
-
+  final bool? autoFocus;
   final String hintText;
   final Function(String)? onChanged;
   final bool isPassword;
   final String? Function(String?)? validator;
-
+  final TextEditingController? controller;
+  final FocusNode? focusNode; // Added focusNode parameter
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: TextFormField(
+        autofocus: autoFocus ?? false,
+        focusNode: focusNode,
+        controller: controller,
         obscureText: isPassword,
         onChanged: onChanged,
         validator: validator,
